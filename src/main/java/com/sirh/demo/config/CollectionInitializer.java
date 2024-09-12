@@ -24,7 +24,7 @@ public class CollectionInitializer implements CommandLineRunner {
                 new ClassPathScanningCandidateComponentProvider(false);
         scanner.addIncludeFilter(new AnnotationTypeFilter(Document.class));
 
-        Set<Class<?>> documentClasses = scanner.findCandidateComponents("com.example.Service_bus.models").stream()
+        Set<Class<?>> documentClasses = scanner.findCandidateComponents("com.sirh.demo.models").stream()
                 .map(beanDefinition -> {
                     try {
                         return Class.forName(beanDefinition.getBeanClassName());
