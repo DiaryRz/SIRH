@@ -9,7 +9,6 @@ import java.util.*;
 
 import com.sirh.demo.models.Teletravail;
 import com.sirh.demo.services.TeleTravailService;
-import java.sql.Timestamp;
 
 @RestController
 @RequestMapping("/sirh/teletravails")
@@ -18,7 +17,7 @@ public class TeletravailController {
     private TeleTravailService TeleTravailService;
 
     @GetMapping("/TTDuJour")
-    public List<Teletravail> listeDesPersonnesARecuperer(@RequestParam Timestamp date) throws Exception {
+    public List<Teletravail> listeDesPersonnesARecuperer(@RequestParam String date) throws Exception {
         List<Teletravail> teletravail = TeleTravailService.teletravailsEntreDeuxDates(date);
         return teletravail;
     }

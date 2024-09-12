@@ -7,23 +7,34 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import com.sirh.demo.models.Conge;
+import com.sirh.demo.utilities.ConvertDate;
 
-import java.sql.Timestamp;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class CongeService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    // Méthode pour trouver des documents où un timestamp donné est entre dateDebut et dateFin
-    public List<Conge> CongesEntreDeuxDates(Timestamp timestampToCompare) {
-        // Créer une requête pour vérifier si timestampToCompare est entre dateDebut et dateFin
-        Query query = new Query();
-        query.addCriteria(Criteria.where("date_debut").lte(timestampToCompare)) // dateDebut <= timestampToCompare
-              .addCriteria(Criteria.where("date_fin").gte(timestampToCompare));  // dateFin >= timestampToCompare
+    public List<Conge> CongesEntreDeuxDates(String timestampToCompareStr) throws ParseException{
+        ConvertDate appelConvertDate = new ConvertDate();
+        Date timestampToCompare = appelConvertDate.convertStringToDateTime(timestampToCompareStr);
+        
+        TimeZone utcTimeZone = TimeZone.getTimeZone("UTC");
+        Calendar calendar = Calendar.getInstance(utcTimeZone);
+        calendar.setTime(timestampToCompare);
+        Date utcTimestamp = calendar.getTime();
 
-        // Exécuter la requête et récupérer les documents correspondants
-        return mongoTemplate.find(query, Conge.class);
+        Query query = new Query();
+        System.out.println("Comparaison avec la date UTC : " + utcTimestamp);
+        query.addCriteria(Criteria.where("date_debut").lte(utcTimestamp))
+             .addCriteria(Criteria.where("date_fin").gte(utcTimestamp));
+
+        List<Conge> results =  mongoTemplate.find(query, Conge.class);
+        return results;
     }
 }
