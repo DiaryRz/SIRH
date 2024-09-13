@@ -19,18 +19,14 @@ public class Conge {
     private Timestamp date_fin;
     private String raison;
 
-    // Constructeur par défaut
     public Conge() {}
 
-    // Constructeur avec paramètres
     public Conge(Personnel personnel, Timestamp date_debut, Timestamp date_fin, String raison) {
         this.personnel = personnel;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.raison = raison;
     }
-
-    // Getters et Setters
     public String getId() {
         return id;
     }

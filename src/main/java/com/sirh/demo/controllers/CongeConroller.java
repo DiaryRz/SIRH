@@ -5,23 +5,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.*;
 
 import com.sirh.demo.models.Retour;
-import com.sirh.demo.models.Teletravail;
-import com.sirh.demo.services.TeleTravailService;
+import com.sirh.demo.services.CongeService;
+import com.sirh.demo.models.Conge;
+import java.util.*;
 
 @RestController
-@RequestMapping("/sirh/teletravails")
-public class TeletravailController {
+@RequestMapping("/sirh/conges")
+public class CongeConroller {
     @Autowired
-    private TeleTravailService TeleTravailService;
+    private CongeService CongeService;
 
-    @GetMapping("/TTDuJour")
+    @GetMapping("/CongeDuJour")
     public Retour listeDesPersonnesARecuperer(@RequestParam String date) throws Exception {
-        List<Teletravail> teletravail = TeleTravailService.teletravailsEntreDeuxDates(date);
-        return new Retour(teletravail);
+        List<Conge> conge = CongeService.CongesEntreDeuxDates(date);
+        return new Retour(conge);
 
     }
-    
 }

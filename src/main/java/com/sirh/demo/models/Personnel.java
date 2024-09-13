@@ -15,9 +15,9 @@ public class Personnel {
     private Profil profil;
     private String email;
     private String mdp;
-    private Arret adresse;
+    private Arret adresse;   
 
-    private int identifiant;
+    private int identifiant;  //0 tsy mandeh par défaut , 1 mandeh par défaut
     private Timestamp tele_travail;
     private Timestamp fin_conge;
         
@@ -87,12 +87,7 @@ public class Personnel {
     public void setMdp(String mdp) {
         this.mdp = mdp;
     }
-    //Select * and by id
-//liste des chauffeurs
-//Liste personnels sans chauffeur
-// All People
-//modifier et delete avec historique
-//
+
     
 
 }

@@ -1,22 +1,15 @@
 package com.sirh.demo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import com.mongodb.DuplicateKeyException;
 import com.sirh.demo.models.Personnel;
 import com.sirh.demo.models.Retour;
 import com.sirh.demo.repositories.PersonnelRepository;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
-
-//import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PeopleService {
@@ -24,17 +17,6 @@ public class PeopleService {
     @Autowired
     private PersonnelRepository personnelRepository;
 
-    // @Autowired
-    // private ChauffeurService AppelChauffeurService;
-
-    // @Autowired
-    // private VoitureHistoriqueRepository voitureHistoriqueRepository;
-
-    // @Autowired
-    // private ChangementChauffeurRepository changementChauffeurRepository;
-
-    @Autowired
-    private MongoTemplate mongoTemplate;
 
     public Retour selectPeople(){
         return new Retour(personnelRepository.findAll());
@@ -101,64 +83,6 @@ public class PeopleService {
             return new Retour("Erreur lors de la recherche du personnel : " + e.getMessage());
         }
     }
-
-    // public Retour creerVoitureAvecChauffeur(Voiture voiture,String idChauffeur) throws Exception {
-    //     try {
-    //         ConvertPrimaryKey convertPrimaryKey = new ConvertPrimaryKey();
-    //         GenericService genericService = new GenericService(mongoTemplate);
-    //         String id = "PERS_00"+String.valueOf(convertPrimaryKey.ConvertStringPrimaryKey(genericService.getDernierElementInsere(Voiture.class,"Id_voiture"))+1);
-    //         Personnel savedChauffeur = AppelChauffeurService.trouverChauffeurParId(idChauffeur) ;
-
-    //         System.out.println(voiture.getImmatricule());
-    //         voiture.setChauffeur(savedChauffeur);
-
-    //         voiture.setId_voiture(id);
-    //         return new Retour(voitureRepository.save(voiture));
-    //     } catch (DuplicateKeyException e) {
-    //         throw new RuntimeException("Une voiture avec cette immatriculation existe déjà.");
-    //     }
-    // }
-
-    
-
-    // public Retour trouverParId(String id) {
-    //     return new Retour(voitureRepository.findById(id)
-    //             .orElseThrow(() -> new RuntimeException("Voiture non trouvé pour l'id : " + id)));
-    // }
-
-    // @Transactional
-    // public Retour ModifierVoiture(String idVoiture, String idChauffeur) {
-    //     Voiture voitureAvant = (Voiture) trouverParId(idVoiture).getData();
-    //     if (voitureAvant == null) {
-    //         throw new EntityNotFoundException("Voiture non trouvée avec l'ID: " + idVoiture);
-    //     }
-    //     LocalDateTime now = LocalDateTime.now();
-    //     Timestamp timestamp = Timestamp.valueOf(now);
-    //     ChangementChauffeur vH = new ChangementChauffeur(voitureAvant, timestamp);
-    //     changementChauffeurRepository.save(vH);
-
-    //     Personnel chauffeur =  AppelChauffeurService.trouverChauffeurParId(idChauffeur);
-    //     voitureAvant.setChauffeur(chauffeur);
-
-    //     voitureRepository.save(voitureAvant);
-
-    //     return new Retour(voitureAvant);
-    // }
-
-    // @Transactional
-    // public void SupprimerVoiture(String idVoiture) {
-    //     Voiture voitureAvant = (Voiture) trouverParId(idVoiture).getData();
-    //     if (voitureAvant == null) {
-    //         throw new EntityNotFoundException("Voiture non trouvée avec l'ID: " + idVoiture);
-    //     }
-
-    //     LocalDateTime now = LocalDateTime.now();
-    //     Timestamp timestamp = Timestamp.valueOf(now);
-    //     VoitureHistorique vH = new VoitureHistorique(voitureAvant, timestamp);
-    //     voitureHistoriqueRepository.save(vH);
-
-    //     voitureRepository.delete(voitureAvant);
-    // }
 
 
 }

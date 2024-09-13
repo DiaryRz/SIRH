@@ -35,7 +35,7 @@ public class ExceptionPresenceService {
         Query query = new Query();
         query.addCriteria(Criteria.where("date").gte(startDate).lt(endDate)
                 .and("matin_ou_soir").is(matin_ou_soir)
-                .and("identifiant").is(identifiant) );
+                .and("identifiant").is(identifiant));
 
         return mongoTemplate.find(query, ExceptionPresence.class);
     }
