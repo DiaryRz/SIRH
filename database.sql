@@ -1,0 +1,110 @@
+db.personnels.insertMany([
+  {
+    _id: 'PERS_001',
+    nom_personnel: 'Dupont',
+    prenom: 'Pierre',
+    numero_personnel: '0102030405',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'pierre.dupont@example.com',
+    mdp: 'password123',
+    identifiant: 1,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_002',
+    nom_personnel: 'Martin',
+    prenom: 'Jean',
+    numero_personnel: '0203040506',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'jean.martin@example.com',
+    mdp: 'password123',
+    identifiant: 1,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_003',
+    nom_personnel: 'Lefevre',
+    prenom: 'Marie',
+    numero_personnel: '0304050607',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'marie.lefevre@example.com',
+    mdp: 'password123',
+    identifiant: 1,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_004',
+    nom_personnel: 'Bernard',
+    prenom: 'Luc',
+    numero_personnel: '0405060708',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'luc.bernard@example.com',
+    mdp: 'password123',
+    identifiant: 1,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_005',
+    nom_personnel: 'Durand',
+    prenom: 'Sophie',
+    numero_personnel: '0506070809',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'sophie.durand@example.com',
+    mdp: 'password123',
+    identifiant: 0,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_006',
+    nom_personnel: 'Moreau',
+    prenom: 'Paul',
+    numero_personnel: '0607080910',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'paul.moreau@example.com',
+    mdp: 'password123',
+    identifiant: 0,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_007',
+    nom_personnel: 'Simon',
+    prenom: 'Julie',
+    numero_personnel: '0708091011',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'julie.simon@example.com',
+    mdp: 'password123',
+    identifiant: 1,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_008',
+    nom_personnel: 'Petit',
+    prenom: 'Antoine',
+    numero_personnel: '0809101112',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'antoine.petit@example.com',
+    mdp: 'password123',
+    identifiant: 1,
+    tele_travail: null,
+    conge: null
+  },
+  {
+    _id: 'PERS_009',
+    nom_personnel: 'Girard',
+    prenom: 'Clara',
+    numero_personnel: '0910111213',
+    profil: { _id: 'PROFIL_003', nom_profil: 'personnel' },
+    email: 'clara.girard@example.com',
+    mdp: 'password123',
+    identifiant: 1,
+    tele_travail: null,
+    conge: null
+  }
+])

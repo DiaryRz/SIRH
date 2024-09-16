@@ -14,7 +14,7 @@ public class ExceptionPresence {
     @DBRef
     private Personnel personnel;
     private Date date;
-    private int identifiant; //absent sa present tsy ho avy 0 , hiakatra 1
+    private int identifiant; //absent sa present. tsy ho avy 0 , hiakatra 1
     private int matin_ou_soir; //0 : matin , 1 : soir
 
     public String getId_exception_resence() {
